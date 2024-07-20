@@ -12,6 +12,13 @@ export class CountryService {
 
     constructor(private http: HttpClient) { }
 
+    searchCountryByAlphaCode(code: string): Observable<Country[]> { 
+        const url = `${this.apiUrl}/alpha/${code}`;
+        return this.http.get<Country[]>(url)
+            .pipe(
+                catchError(() => of([]))
+            );
+    }
     // Voy a retornar un Observable de tipo Country[] y al get tambien le paso el tipo de dato que va a retornar
     searchCapital(term: string): Observable<Country[]> { 
         const url = `${this.apiUrl}/capital/${term}`;
