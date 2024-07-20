@@ -19,7 +19,7 @@ export class CountryService {
             // si no uso la variable error mejor le mando ()
             // devuelvo un array vacio 
             catchError(() => of([])),
-            delay( 2000 )
+            //delay( 2000 )
         );
     }
 
